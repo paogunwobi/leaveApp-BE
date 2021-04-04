@@ -1,0 +1,316 @@
+{
+    "tables": {
+        "departments": {
+            "tableName": "departments",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "name": {
+                    "field": "name",
+                    "seqType": "Sequelize.STRING"
+                },
+                "code": {
+                    "field": "code",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "lineManager": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "staffs",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "field": "lineManager",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "leaves": {
+            "tableName": "leaves",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "code": {
+                    "field": "code",
+                    "seqType": "Sequelize.STRING"
+                },
+                "totalLeaveDays": {
+                    "field": "totalLeaveDays",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "description": {
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "department": {
+                    "field": "department",
+                    "seqType": "Sequelize.STRING"
+                },
+                "status": {
+                    "field": "status",
+                    "seqType": "Sequelize.ENUM('NOT-APPLIED', 'PENDING', 'APPROVED', 'ON-GOING', 'CANCELLED', 'COMPLETED', 'REJECTED')"
+                },
+                "leaveStartDate": {
+                    "field": "leaveStartDate",
+                    "seqType": "Sequelize.STRING"
+                },
+                "leaveEndDate": {
+                    "field": "leaveEndDate",
+                    "seqType": "Sequelize.STRING"
+                },
+                "resumptionDate": {
+                    "field": "resumptionDate",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "staffId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "staffs",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "field": "staffId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "approverId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "staffs",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "field": "approverId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "leaveTypeId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "leaveTypes",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "field": "leaveTypeId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "leaveId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "staffs",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "field": "leaveId",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "leaveTypes": {
+            "tableName": "leaveTypes",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "type": {
+                    "field": "type",
+                    "seqType": "Sequelize.STRING"
+                },
+                "code": {
+                    "field": "code",
+                    "seqType": "Sequelize.STRING"
+                },
+                "isPreAllocated": {
+                    "field": "isPreAllocated",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "maxDays": {
+                    "field": "maxDays",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "description": {
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "staffs": {
+            "tableName": "staffs",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "firstName": {
+                    "field": "firstName",
+                    "seqType": "Sequelize.STRING"
+                },
+                "lastName": {
+                    "field": "lastName",
+                    "seqType": "Sequelize.STRING"
+                },
+                "email": {
+                    "field": "email",
+                    "seqType": "Sequelize.STRING"
+                },
+                "staffCode": {
+                    "field": "staffCode",
+                    "seqType": "Sequelize.STRING"
+                },
+                "password": {
+                    "field": "password",
+                    "seqType": "Sequelize.STRING"
+                },
+                "phoneNumber": {
+                    "field": "phoneNumber",
+                    "seqType": "Sequelize.STRING"
+                },
+                "eligible": {
+                    "field": "eligible",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "status": {
+                    "field": "status",
+                    "seqType": "Sequelize.ENUM('ACTIVE', 'DISABLED', 'REMOVED')"
+                },
+                "role": {
+                    "field": "role",
+                    "seqType": "Sequelize.ENUM('ADMIN', 'LINE-MANAGER', 'STAFF')"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "departmentId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "departments",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "field": "departmentId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "staffLevelId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "staffLevels",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "field": "staffLevelId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "staffId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "staffLevels",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "field": "staffId",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "staffLevels": {
+            "tableName": "staffLevels",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "levelName": {
+                    "field": "levelName",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "revision": 1
+}
