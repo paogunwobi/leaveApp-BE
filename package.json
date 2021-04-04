@@ -5,6 +5,7 @@
   "author": "orie chinedu",
   "license": "MIT",
   "scripts": {
+    "start": "node index.js",
     "start-dev": "nodemon index.js",
     "migrate": "npx sequelize-cli db:migrate",
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
