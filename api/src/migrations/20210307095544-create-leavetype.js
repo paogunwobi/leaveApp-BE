@@ -2,42 +2,38 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('leaveTypes', {
-        "id": {
-            "allowNull": false,
-            "primaryKey": true,
-            "autoIncrement": true,
-            "field": "id",
-            "seqType": "Sequelize.INTEGER"
+        id: {
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+            type: Sequelize.INTEGER
         },
-        "type": {
-            "field": "type",
-            "seqType": "Sequelize.STRING"
+        type: {
+            allowNull: false,
+            type: Sequelize.STRING
         },
-        "code": {
-            "field": "code",
-            "seqType": "Sequelize.STRING"
+        code: {
+            allowNull: false,
+            type: Sequelize.STRING
         },
-        "isPreAllocated": {
-            "field": "isPreAllocated",
-            "seqType": "Sequelize.BOOLEAN"
+        isPreAllocated: {
+            allowNull: false,
+            type: Sequelize.BOOLEAN
         },
-        "maxDays": {
-            "field": "maxDays",
-            "seqType": "Sequelize.INTEGER"
+        maxDays: {
+            allowNull: false,
+            type: Sequelize.INTEGER
         },
-        "description": {
-            "field": "description",
-            "seqType": "Sequelize.STRING"
+        description: {
+            type: Sequelize.STRING
         },
-        "createdAt": {
-            "allowNull": false,
-            "field": "createdAt",
-            "seqType": "Sequelize.DATE"
+        createdAt: {
+            allowNull: false,
+            type: Sequelize.DATE
         },
-        "updatedAt": {
-            "allowNull": false,
-            "field": "updatedAt",
-            "seqType": "Sequelize.DATE"
+        updatedAt: {
+            allowNull: false,
+            type: Sequelize.DATE
         }
     });
   },

@@ -2,91 +2,84 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('staffs', {
-      "id": {
-        "allowNull": false,
-        "primaryKey": true,
-        "autoIncrement": true,
-        "field": "id",
-        "seqType": "Sequelize.INTEGER"
+      id: {
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+        type: Sequelize.INTEGER
       },
-      "firstName": {
-          "field": "firstName",
-          "seqType": "Sequelize.STRING"
+      firstName: {
+          allowNull: false,
+          type: Sequelize.STRING
       },
-      "lastName": {
-          "field": "lastName",
-          "seqType": "Sequelize.STRING"
+      lastName: {
+          allowNull: false,
+          type: Sequelize.STRING
       },
-      "email": {
-          "field": "email",
-          "seqType": "Sequelize.STRING"
+      email: {
+          allowNull: false,
+          type: Sequelize.STRING
       },
-      "password": {
-          "field": "password",
-          "seqType": "Sequelize.STRING"
+      password: {
+          allowNull: false,
+          type: Sequelize.STRING
       },
-      "phoneNumber": {
-          "field": "phoneNumber",
-          "seqType": "Sequelize.STRING"
+      phoneNumber: {
+          allowNull: false,
+          type: Sequelize.STRING
       },
-      "staffCode": {
-          "field": "staffCode",
-          "seqType": "Sequelize.STRING"
+      staffCode: {
+          allowNull: false,
+          type: Sequelize.STRING
       },
-      "eligible": {
-          "field": "eligible",
-          "seqType": "Sequelize.BOOLEAN"
+      eligible: {
+          type: Sequelize.BOOLEAN
       },
-      "status": {
-          "field": "status",
-          "seqType": "Sequelize.ENUM('ACTIVE', 'DISABLED', 'REMOVED')"
+      status: {
+          allowNull: false,
+          type: Sequelize.ENUM('ACTIVE', 'DISABLED', 'REMOVED')
       },
-      "role": {
-          "field": "role",
-          "seqType": "Sequelize.ENUM('ADMIN', 'LINE-MANAGER', 'STAFF')"
+      role: {
+          allowNull: false,
+          type: Sequelize.ENUM('ADMIN', 'LINE-MANAGER', 'STAFF')
       },
-      "createdAt": {
-          "allowNull": false,
-          "field": "createdAt",
-          "seqType": "Sequelize.DATE"
+      createdAt: {
+          allowNull: false,
+          type: Sequelize.DATE
       },
-      "updatedAt": {
-          "allowNull": false,
-          "field": "updatedAt",
-          "seqType": "Sequelize.DATE"
+      updatedAt: {
+          allowNull: false,
+          field: updatedAt,
+          type: Sequelize.DATE
       },
-      "departmentId": {
-          "allowNull": true,
-          "references": {
-              "model": "departments",
-              "key": "id"
+      departmentId: {
+          allowNull: true,
+          references: {
+              model: departments,
+              key: id
           },
-          "onDelete": "SET NULL",
-          "onUpdate": "CASCADE",
-          "field": "departmentId",
-          "seqType": "Sequelize.INTEGER"
+          onUpdate: CASCADE,
+          field: departmentId,
+          type: Sequelize.INTEGER
       },
-      "staffLevelId": {
-          "allowNull": true,
-          "references": {
-              "model": "staffLevels",
-              "key": "id"
+      staffLevelId: {
+          allowNull: true,
+          references: {
+              model: staffLevels,
+              key: id
           },
-          "onDelete": "SET NULL",
-          "onUpdate": "CASCADE",
-          "field": "staffLevelId",
-          "seqType": "Sequelize.INTEGER"
+          onUpdate: CASCADE,
+          type: Sequelize.INTEGER
       },
-    //   "staffId": {
-    //       "allowNull": true,
-    //       "references": {
-    //           "model": "staffLevels",
-    //           "key": "id"
+    //   staffId: {
+    //       allowNull: true,
+    //       references: {
+    //           model: staffLevels,
+    //           key: id
     //       },
-    //       "onDelete": "SET NULL",
-    //       "onUpdate": "CASCADE",
-    //       "field": "staffId",
-    //       "seqType": "Sequelize.INTEGER"
+    //       onDelete: SET NULL,
+    //       onUpdate: CASCADE,
+    //       type: Sequelize.INTEGER
     //   }
     });
   },

@@ -2,30 +2,26 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('staffLevels', {
-        "id": {
-            "allowNull": false,
-            "primaryKey": true,
-            "autoIncrement": true,
-            "field": "id",
-            "seqType": "Sequelize.INTEGER"
+        id: {
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+            type: Sequelize.INTEGER
         },
-        "levelName": {
-            "field": "levelName",
-            "seqType": "Sequelize.STRING"
+        levelName: {
+            allowNull: false,
+            type: Sequelize.STRING
         },
-        "description": {
-            "field": "description",
-            "seqType": "Sequelize.STRING"
+        description: {
+            type: Sequelize.STRING
         },
-        "createdAt": {
-            "allowNull": false,
-            "field": "createdAt",
-            "seqType": "Sequelize.DATE"
+        createdAt: {
+            allowNull: false,
+            type: Sequelize.DATE
         },
-        "updatedAt": {
-            "allowNull": false,
-            "field": "updatedAt",
-            "seqType": "Sequelize.DATE"
+        updatedAt: {
+            allowNull: false,
+            type: Sequelize.DATE
         }
     });
   },
