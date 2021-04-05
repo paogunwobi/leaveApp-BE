@@ -77,17 +77,17 @@ module.exports = {
           "field": "staffLevelId",
           "seqType": "Sequelize.INTEGER"
       },
-      "staffId": {
-          "allowNull": true,
-          "references": {
-              "model": "staffLevels",
-              "key": "id"
-          },
-          "onDelete": "SET NULL",
-          "onUpdate": "CASCADE",
-          "field": "staffId",
-          "seqType": "Sequelize.INTEGER"
-      }
+    //   "staffId": {
+    //       "allowNull": true,
+    //       "references": {
+    //           "model": "staffLevels",
+    //           "key": "id"
+    //       },
+    //       "onDelete": "SET NULL",
+    //       "onUpdate": "CASCADE",
+    //       "field": "staffId",
+    //       "seqType": "Sequelize.INTEGER"
+    //   }
     });
   },
   down: async (queryInterface, Sequelize) => {

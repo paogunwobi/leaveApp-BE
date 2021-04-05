@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
   );
   department.associate = function (models) {
     // associations can be defined here
-    department.belongsTo(models.staff, {as:"lineManagerID", foreignKey: "lineManager" });
-    department.hasMany(models.staff);
+    department.belongsTo(models.staff, {as:"lineManager", foreignKey: "lineManagerId" });
+    department.hasMany(models.staff, {as:"staffs", foreignKey: "staffId" });
     
   };
   return department;
