@@ -205,23 +205,24 @@ exports.sendSignForm = async (req, res) => {
 
 //get all staff
 exports.getAllstaffs = async (req, res) => {
-  try {
-    console.log('Looking for Staffs already...');
-    const staffs = await db.staff.findAll({
-      include: ["department"],
-      attributes: { exclude: ["password"] },
-    });
+  res.send("getAllstaffs endpoint works!!!");
+  // try {
+  //   console.log('Looking for Staffs already...');
+  //   const staffs = await db.staff.findAll({
+  //     include: ["department"],
+  //     attributes: { exclude: ["password"] },
+  //   });
 
-    if (staffs) {
-      return res.status(200).json({ success: true, data: staffs });
-    }
-    return res
-      .status(404)
-      .json({ success: false, message: "No staff found" });
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json({ success: false, error: error.message });
-  }
+  //   if (staffs) {
+  //     return res.status(200).json({ success: true, data: staffs });
+  //   }
+  //   return res
+  //     .status(404)
+  //     .json({ success: false, message: "No staff found" });
+  // } catch (err) {
+  //   console.log(err);
+  //   return res.status(500).json({ success: false, error: error.message });
+  // }
 };
 
 //get all staff for a Department
