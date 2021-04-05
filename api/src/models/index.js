@@ -1,29 +1,32 @@
+'use strict';
 
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-const envConfigs =  require('../config/config');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = envConfigs[env];
+const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
 let sequelize;
-if (config.url) {
-  sequelize = new Sequelize(config.url, config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+// if (config.use_env_variable) {
+//   sequelize = new Sequelize(process.env[config.use_env_variable], config);
+// } else {
+  if (config.url) {
+    sequelize = new Sequelize(config.url, config);
+  } else {  
+  sequelize = new Sequelize(config.database, config.staffname, config.password, config);
 }
 
-async function checkConnection() {
+const authenticate = async () => {
   try {
     await sequelize.authenticate();
     console.log('Connection has been established successfully.');
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
-};
-checkConnection();
+}
+authenticate();
 
 fs
   .readdirSync(__dirname)
@@ -31,7 +34,7 @@ fs
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
   .forEach(file => {
-    const model = sequelize['import'](path.join(__dirname, file));
+    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
   });
 

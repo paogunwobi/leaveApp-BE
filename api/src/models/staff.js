@@ -1,3 +1,4 @@
+'use strict';
 
 module.exports = (sequelize, DataTypes) => {
   const staff = sequelize.define('staff', {
@@ -18,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   staff.associate = function(models) {
     // associations can be defined here
     staff.belongsTo(models.department);
-    staff.belongsTo(models.staffLevel);
+    staff.belongsTo(models.staffLevel, { foreignKey: 'staffLevelId', as: 'staffLevel'});
     staff.hasMany(models.leave, {
       foreignKey: 'leaveId',
       as: 'leaves',

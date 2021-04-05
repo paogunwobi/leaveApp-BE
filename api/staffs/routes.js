@@ -1,5 +1,7 @@
-const staffCtrl = require("../controllers/staffCtrl");
+const staffCtrl = require("./controller");
 const router = require("express").Router();
+
+// console.warn('Staff Routes Working');
 
 router.post("/", staffCtrl.sendSignForm);
 
@@ -19,7 +21,7 @@ router.delete("/", staffCtrl.deleteAllstaffs);
 
 router.post("/login", staffCtrl.staffLogin);
 
-router.get("/all", staffCtrl.getAllstaffs);
+router.get("/", staffCtrl.getAllstaffs);
 
 router.post("/forgot_password", staffCtrl.forgotPassword);
 
