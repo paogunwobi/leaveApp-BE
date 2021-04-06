@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       // associations can be defined here
       staffLevel.hasMany(models.staff, {
         as: 'staffs',
-        foreignKey: 'staffId',
+        foreignKey: 'staffCode',
       });
     };
     return staffLevel;

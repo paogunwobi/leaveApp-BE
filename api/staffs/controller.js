@@ -5,8 +5,12 @@ exports.addOnestaff = async (req, res) => {
   try {
     const {
       firstName,
+      staffId,
       lastName,
       email,
+      phoneNumber,
+      eligible,
+      status,
       staffLevelId,
       departmentId,
       role,
@@ -32,7 +36,11 @@ exports.addOnestaff = async (req, res) => {
     const newstaff = await db.staff.create({
         firstName,
         lastName,
-        email,
+        email,  
+        phoneNumber,
+        eligible,
+        status,
+        staffCode: staffId,
         staffLevelId,
         departmentId,
         role,
@@ -55,7 +63,7 @@ exports.addOnestaff = async (req, res) => {
         body: ` Take a look! ${newstaff.firstName} ${newstaff.lastName} Account has been created`,
       };
 
-      console.log(payLoad)      // Send RealTime Notifications
+      console.log('payLoad: ', payLoad)      // Send RealTime Notifications
     //   pusher("newstaff", payLoad, req.headers["x-socket-id"]);
 
       return res.status(201).json({
@@ -115,9 +123,12 @@ exports.updatestaff = async (req, res) => {
 //staff login
 exports.staffLogin = async (req, res) => {
   try {
-
+    
     const { staffCode, password } = req.body;
 
+    console.log('staffCode: ', staffCode);
+    console.log('req.body: ', req.body);
+    
     // Query the db for where the user email exists
     const staff = await db.staff.findOne({
       where: { staffCode },
@@ -143,22 +154,10 @@ exports.staffLogin = async (req, res) => {
         .json({ success: false, message: "Incorrect Email or Password" });
     }
 
-    const payload = {
-      id: staff.id,
-      name: `${staff.firstName} ${staff.lastName}`,
-      email: staff.email,
-      role: staff.role,
-      departmentId: staff.departmentId,
-      staffLevelId: staff.staffLevelId
-    };
-
-    const token = createToken(payload, "2d");
-
     return res.status(200).json({
       success: true,
       message: "Login successful",
       data: staff,
-      token,
     });
   } catch (err) {
     console.log(err);
@@ -188,7 +187,7 @@ exports.sendSignForm = async (req, res) => {
     }
 
     req.body.email = req.body.email.toLowerCase();
-
+    console.log('req.body: ', req.body);
     await db.staff.create(req.body);
 
     return res.status(201).json({

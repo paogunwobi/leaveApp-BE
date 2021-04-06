@@ -3,7 +3,7 @@ const router = require("express").Router();
 
 // console.warn('Staff Routes Working');
 
-router.post("/", staffCtrl.sendSignForm);
+router.post("/sendsignform", staffCtrl.sendSignForm);
 
 router.patch("/update/:id", staffCtrl.updatestaff);
 
@@ -25,7 +25,7 @@ router.get("/", staffCtrl.getAllstaffs);
 
 router.post("/forgot_password", staffCtrl.forgotPassword);
 
-router.post("/add-staff", staffCtrl.addOnestaff);
+router.post("/signup", staffCtrl.addOnestaff);
 
 router.get("/all/profile", staffCtrl.getstaffProfile);
 

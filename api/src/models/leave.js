@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   leave.associate = function(models) {
     // associations can be defined here
-    leave.belongsTo(models.staff, {as:"staff", foreignKey: "staffId" });
+    leave.belongsTo(models.staff, {as:"staff", foreignKey: "staffCode" });
     leave.belongsTo(models.staff, {as:"approver", foreignKey: "approverId" });
     leave.belongsTo(models.department, {as:"department", foreignKey: "departmentId" });
     leave.belongsTo(models.leaveType, {as:"leaveType", foreignKey: "leaveTypeId" });

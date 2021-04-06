@@ -43,7 +43,7 @@ module.exports = {
             allowNull: false,
             type: Sequelize.DATE
         },
-        staffId: {
+        staffCode: {
             allowNull: true,
             // references: {
             //     model: staffs,

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   department.associate = function (models) {
     // associations can be defined here
     department.belongsTo(models.staff, {as:"lineManager", foreignKey: "lineManagerId" });
-    department.hasMany(models.staff, {as:"staffs", foreignKey: "staffId" });
+    department.hasMany(models.staff, {as:"staffs", foreignKey: "staffCode" });
     
   };
   return department;
