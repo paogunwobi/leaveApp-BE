@@ -28,13 +28,13 @@ module.exports = {
             allowNull: false,
             type: Sequelize.DATE
         },
-        lineManager: {
+        lineManagerId: {
             allowNull: true,
-            references: {
-                model: staffs,
-                key: id
-            },
-            onUpdate: CASCADE,
+            // references: {
+            //     model: staffs,
+            //     key: id
+            // },
+            // onUpdate: CASCADE,
             type: Sequelize.INTEGER
         }
     });

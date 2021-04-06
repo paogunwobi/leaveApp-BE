@@ -45,38 +45,38 @@ module.exports = {
         },
         staffId: {
             allowNull: true,
-            references: {
-                model: staffs,
-                key: id
-            },
-            onUpdate: CASCADE,
+            // references: {
+            //     model: staffs,
+            //     key: id
+            // },
+            // onUpdate: CASCADE,
             type: Sequelize.INTEGER
         },
         approverId: {
             allowNull: true,
-            references: {
-                model: staffs,
-                key: id
-            },
-            onUpdate: CASCADE,
+            // references: {
+            //     model: staffs,
+            //     key: id
+            // },
+            // onUpdate: CASCADE,
             type: Sequelize.INTEGER
         },
         departmentId: {
             allowNull: true,
-            references: {
-                model: departments,
-                key: id
-            },
-            onUpdate: CASCADE,
+            // references: {
+            //     model: departments,
+            //     key: id
+            // },
+            // onUpdate: CASCADE,
             type: Sequelize.INTEGER
         },
         leaveTypeId: {
             allowNull: true,
-            references: {
-                model: leaveTypes,
-                key: id
-            },
-            onUpdate: CASCADE,
+            // references: {
+            //     model: leaveTypes,
+            //     key: id
+            // },
+            // onUpdate: CASCADE,
             type: Sequelize.INTEGER
         },
         // leaveId: {

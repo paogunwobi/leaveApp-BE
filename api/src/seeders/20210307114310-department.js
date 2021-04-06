@@ -5,7 +5,7 @@ module.exports = {
     await queryInterface.bulkInsert('departments', [{
       name: "IT",
       code: "dept001",
-      lineManagerID: 1,
+      lineManagerId: 1,
       description: "This department is responsible for all Technology related activities of the Company",
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -13,7 +13,7 @@ module.exports = {
     {
       name: "FINANCE",
       code: "dept002",
-      lineManagerID: 1,
+      lineManagerId: 1,
       description: "This department is responsible for all Finance related activities of the Company",
       createdAt: new Date(),
       updatedAt: new Date(),

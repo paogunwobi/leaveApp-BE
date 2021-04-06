@@ -49,38 +49,26 @@ module.exports = {
       },
       updatedAt: {
           allowNull: false,
-          field: updatedAt,
           type: Sequelize.DATE
       },
       departmentId: {
           allowNull: true,
-          references: {
-              model: departments,
-              key: id
-          },
-          onUpdate: CASCADE,
-          field: departmentId,
+          // references: {
+          //     model: departments,
+          //     key: id
+          // },
+          // onUpdate: CASCADE,
           type: Sequelize.INTEGER
       },
       staffLevelId: {
           allowNull: true,
-          references: {
-              model: staffLevels,
-              key: id
-          },
-          onUpdate: CASCADE,
+          // references: {
+          //     model: staffLevels,
+          //     key: id
+          // },
+          // onUpdate: CASCADE,
           type: Sequelize.INTEGER
-      },
-    //   staffId: {
-    //       allowNull: true,
-    //       references: {
-    //           model: staffLevels,
-    //           key: id
-    //       },
-    //       onDelete: SET NULL,
-    //       onUpdate: CASCADE,
-    //       type: Sequelize.INTEGER
-    //   }
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {

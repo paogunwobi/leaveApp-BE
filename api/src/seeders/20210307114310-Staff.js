@@ -18,7 +18,7 @@ module.exports = {
         status: 'ACTIVE',
         eligible: false,
         departmentId: 1,
-        staffLevel: 3,
+        staffLevelId: 3,
         password:
           "$2y$10$Osrvxnndbn.xWI6qQTQslOBbhflRQM4zhXcZvn0YOHMhLdD5AXA1u",
         createdAt: new Date(),
@@ -34,7 +34,7 @@ module.exports = {
         status: 'ACTIVE',
         eligible: true,
         departmentId: 1,
-        staffLevel: 3,
+        staffLevelId: 3,
         password:
           "$2y$10$Osrvxnndbn.xWI6qQTQslOBbhflRQM4zhXcZvn0YOHMhLdD5AXA1u",
         createdAt: new Date(),
@@ -50,7 +50,7 @@ module.exports = {
         status: 'ACTIVE',
         eligible: true,
         departmentId: 1,
-        staffLevel: 1,
+        staffLevelId: 1,
         password:
           "$2y$10$Osrvxnndbn.xWI6qQTQslOBbhflRQM4zhXcZvn0YOHMhLdD5AXA1u",
         createdAt: new Date(),
@@ -66,7 +66,7 @@ module.exports = {
         status: 'ACTIVE',
         eligible: true,
         departmentId: 1,
-        staffLevel: 2,
+        staffLevelId: 2,
         password:
           "$2y$10$Osrvxnndbn.xWI6qQTQslOBbhflRQM4zhXcZvn0YOHMhLdD5AXA1u",
         createdAt: new Date(),
