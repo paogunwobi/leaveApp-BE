@@ -63,7 +63,7 @@ exports.addOnestaff = async (req, res) => {
         body: ` Take a look! ${newstaff.firstName} ${newstaff.lastName} Account has been created`,
       };
 
-      console.log('payLoad: ', payLoad)      // Send RealTime Notifications
+      // console.log('payLoad: ', payLoad)      // Send RealTime Notifications
     //   pusher("newstaff", payLoad, req.headers["x-socket-id"]);
 
       return res.status(201).json({
@@ -126,8 +126,8 @@ exports.staffLogin = async (req, res) => {
     
     const { staffCode, password } = req.body;
 
-    console.log('staffCode: ', staffCode);
-    console.log('req.body: ', req.body);
+    // console.log('staffCode: ', staffCode);
+    // console.log('req.body: ', req.body);
     
     // Query the db for where the user email exists
     const staff = await db.staff.findOne({
@@ -187,7 +187,7 @@ exports.sendSignForm = async (req, res) => {
     }
 
     req.body.email = req.body.email.toLowerCase();
-    console.log('req.body: ', req.body);
+    // console.log('req.body: ', req.body);
     await db.staff.create(req.body);
 
     return res.status(201).json({
@@ -325,7 +325,6 @@ exports.multipleDelete = async (req, res) => {
     const deleted = await db.staff.destroy({
       where: {
         id: req.body.id,
-        companyId: req.user.companyId,
       },
     });
 
